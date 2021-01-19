@@ -22,7 +22,6 @@ Metrics/BlockLength:
   ExcludedMethods:
     - context
     - describe
-    - draw
     - factory
     - it
     - namespace
@@ -32,9 +31,6 @@ Metrics/BlockLength:
     - feature
     - scenario
     - within
-    - def_param_group
-    - param
-    - queries
     - it_behaves_like
     - include_examples
 
@@ -49,7 +45,6 @@ Rails/UnknownEnv:
   Environments:
     - development
     - production
-    - release
     - test
 
 Style/SymbolArray:
@@ -72,4 +67,3 @@ RSpec/ExampleLength:
 RSpec/MultipleExpectations:
   Exclude:
     - spec/features/**/*_spec.rb
-    - spec/support/shared_examples/features/**/*.rb
