@@ -1,0 +1,69 @@
+require: rubocop-rspec
+
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+    - 'tmp/**/*'
+  TargetRubyVersion: 2.6
+  TargetRailsVersion: 5.2
+
+Documentation:
+  Enabled: false
+
+Rails:
+  Enabled: true
+
+Lint/AmbiguousBlockAssociation:
+  Enabled: false
+
+Metrics/BlockLength:
+  ExcludedMethods:
+    - context
+    - describe
+    - factory
+    - it
+    - namespace
+    - define
+    - shared_examples
+    - shared_context
+    - feature
+    - scenario
+    - within
+    - it_behaves_like
+    - include_examples
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/ModuleLength:
+  Exclude:
+    - spec/**/*_spec.rb
+
+Rails/UnknownEnv:
+  Environments:
+    - development
+    - production
+    - test
+
+Style/SymbolArray:
+  Enabled: true
+  EnforcedStyle: brackets
+
+RSpec/DescribedClass:
+  SkipBlocks: true
+
+RSpec/EmptyLineAfterSubject:
+  Exclude:
+    - 'spec/factories/**/*'
+
+RSpec/NestedGroups:
+  Max: 5
+
+RSpec/ExampleLength:
+  Max: 50
+
+RSpec/MultipleExpectations:
+  Exclude:
+    - spec/features/**/*_spec.rb
