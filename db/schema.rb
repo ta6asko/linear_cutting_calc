@@ -10,58 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_21_085042) do
+ActiveRecord::Schema.define(version: 2021_01_21_085002) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "blank_parts", force: :cascade do |t|
-    t.bigint "blank_id"
-    t.bigint "part_id"
-    t.integer "quantity", default: 1, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["blank_id"], name: "index_blank_parts_on_blank_id"
-    t.index ["part_id"], name: "index_blank_parts_on_part_id"
-  end
-
-  create_table "blanks", force: :cascade do |t|
-    t.bigint "task_id"
-    t.string "description"
-    t.integer "length", null: false
-    t.integer "quantity", default: 1, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["task_id"], name: "index_blanks_on_task_id"
-  end
-
-  create_table "parts", force: :cascade do |t|
-    t.bigint "task_id"
-    t.string "description"
-    t.integer "length", null: false
-    t.integer "quantity", default: 1, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["task_id"], name: "index_parts_on_task_id"
-  end
-
-  create_table "tasks", force: :cascade do |t|
-    t.bigint "user_id"
-    t.decimal "cutting_thickness", precision: 15, scale: 2, null: false
-    t.string "description"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_tasks_on_user_id"
-  end
-
   create_table "users", force: :cascade do |t|
+    t.string "provider", default: "email", null: false
+    t.string "uid", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.boolean "allow_password_change", default: false
+    t.datetime "remember_created_at"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
+    t.string "name"
+    t.string "nickname"
+    t.string "image"
+    t.string "email"
+    t.json "tokens"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
-  add_foreign_key "blank_parts", "blanks"
-  add_foreign_key "blank_parts", "parts"
-  add_foreign_key "blanks", "tasks"
-  add_foreign_key "parts", "tasks"
-  add_foreign_key "tasks", "users"
 end
