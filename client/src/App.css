@@ -1,0 +1,50 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
+.text-center {
+  text-align: center!important;
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+
+.form-signup {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+
+.tablesorter {
+  background-color: #ddd;
+  margin: 0;
+  text-align: left;
+  font-size: 9pt;
+  border-collapse: separate;
+  border-spacing: 1px;
+  border-color: black;
+}
+
+.list-group-item {
+  text-align: left;
+
+  img {
+    float: left;
+  }
+
+  svg {
+    float: right;
+  }
+}
+
+.bi-x-circle-fill:hover {
+  color: #0366d6!important;
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2)
+}

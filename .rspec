@@ -1,4 +1,1 @@
---color
---require rails_helper
---profile
---format progress
+--require spec_helper

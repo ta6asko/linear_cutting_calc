@@ -4,7 +4,6 @@ source 'https://rubygems.org'
 
 ruby(File.read(File.join(File.dirname(__FILE__), '.ruby-version')).strip)
 
-gem 'active_model_serializers'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bootstrap-sass'
 gem 'coffee-rails'
@@ -26,6 +25,15 @@ gem 'sass-rails'
 gem 'sassc-rails'
 gem 'turbolinks'
 gem 'webpacker'
+
+# JSON generator
+gem 'active_model_serializers', '~> 0.10.10'
+
+# Authentication
+gem 'devise_token_auth', '~> 1.1.3'
+
+# Rack Middleware
+gem 'rack-cors', '~> 1.1.1', require: 'rack/cors'
 
 group :development do
   gem 'better_errors'
