@@ -1,6 +1,6 @@
-class CreateTasks < ActiveRecord::Migration[6.0]
+class CreateProjects < ActiveRecord::Migration[6.0]
   def change
-    create_table :tasks do |t|
+    create_table :projects do |t|
       t.belongs_to :user, foreign_key: { to_table: :users }
 
       t.decimal :cutting_thickness, precision: 15, scale: 2, null: false
